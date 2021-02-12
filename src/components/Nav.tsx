@@ -4,8 +4,8 @@ import { Link as NavLink } from 'react-router-dom';
 
 export const Nav = () => {
   return (
-    <Box as='nav'>
-      <HStack as='ul'>
+    <Box boxShadow='2xl' as='nav' bgColor='#333' p={2}>
+      <HStack pl={4} spacing={5} color='white' as='ul' listStyleType='none'>
         <Box as='li'>
           <Link as={NavLink} to='/home'>
             Home
