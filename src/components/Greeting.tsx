@@ -14,14 +14,9 @@ type TProps = {
 };
 
 export const Greeting: FC<TProps> = ({ initialName }) => {
-  const [name, setName] = useState(initialName);
-
-  useEffect(() => {
-    if (localStorage.getItem('name')) {
-      const storedName = localStorage.getItem('name');
-      setName(storedName || initialName);
-    }
-  }, []);
+  const [name, setName] = useState(
+    () => localStorage.getItem('name') || initialName
+  );
 
   useEffect(() => {
     if (localStorage.getItem('name')) {
