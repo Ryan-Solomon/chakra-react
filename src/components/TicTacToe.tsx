@@ -10,15 +10,24 @@ type TProps = {
 export const TicTacToe: FC<TProps> = ({ setNextPlayer, currentPlayer }) => {
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const nextPlayer = currentPlayer === 'X' ? '0' : 'X';
+
+  function handleClick(idx: number) {
+    setNextPlayer(nextPlayer);
+    const newBoard = [...board];
+    const boardValue = currentPlayer === 'X' ? -1 : 1;
+    newBoard[idx] = boardValue;
+    setBoard(newBoard);
+  }
   return (
     <Grid
       w='500px'
       templateColumns='repeat(3,1fr)'
       templateRows='repeat(3,1fr)'
     >
-      {board.map((value) => {
+      {board.map((value, idx) => {
         return (
           <Box
+            as='button'
             _hover={{
               background: 'white',
               cursor: 'pointer',
@@ -35,9 +44,10 @@ export const TicTacToe: FC<TProps> = ({ setNextPlayer, currentPlayer }) => {
             width='100%'
             bg='gray.600'
             color='white'
-            onClick={() => setNextPlayer(nextPlayer)}
+            onClick={() => handleClick(idx)}
+            disabled={value !== 0}
           >
-            {value}
+            {value === 0 ? '-' : value === -1 ? 'X' : '0'}
           </Box>
         );
       })}
