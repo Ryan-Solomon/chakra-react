@@ -6,8 +6,6 @@ export const TicTacToe = () => {
   return (
     <Grid
       w='500px'
-      mx='auto'
-      mt={10}
       templateColumns='repeat(3,1fr)'
       templateRows='repeat(3,1fr)'
     >
