@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
   Box,
   FormControl,
@@ -15,6 +15,21 @@ type TProps = {
 
 export const Greeting: FC<TProps> = ({ initialName }) => {
   const [name, setName] = useState(initialName);
+
+  useEffect(() => {
+    if (localStorage.getItem('name')) {
+      const storedName = localStorage.getItem('name');
+      setName(storedName || initialName);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem('name')) {
+      localStorage.removeItem('name');
+    }
+    localStorage.setItem('name', name);
+  }, [name]);
+
   return (
     <Box mx='auto' mt={5} width='400px' color='gray.800'>
       <FormControl id='name'>
