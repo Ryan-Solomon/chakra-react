@@ -1,9 +1,9 @@
-import { Flex, Grid, HStack, Stack, Text } from '@chakra-ui/react';
+import { Grid, HStack, Stack, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { TicTacToe } from '../../components/TicTacToe';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-type TPlayers = 'X' | '0';
+export type TPlayers = 'X' | '0';
 
 export const TicTacToePage = () => {
   const [player, setPlayer] = useState<TPlayers>('X');
@@ -15,7 +15,7 @@ export const TicTacToePage = () => {
           <AiOutlineArrowRight color='black' />
           <Text fontWeight='bold'>{player}</Text>
         </HStack>
-        <TicTacToe />
+        <TicTacToe setNextPlayer={setPlayer} currentPlayer={player} />
       </Stack>
     </Grid>
   );

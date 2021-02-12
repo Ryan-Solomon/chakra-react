@@ -1,8 +1,15 @@
 import { Box, Grid } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
+import { TPlayers } from '../pages/ticTacToe/TicTacToePage';
 
-export const TicTacToe = () => {
+type TProps = {
+  setNextPlayer: (p: TPlayers) => void;
+  currentPlayer: TPlayers;
+};
+
+export const TicTacToe: FC<TProps> = ({ setNextPlayer, currentPlayer }) => {
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const nextPlayer = currentPlayer === 'X' ? '0' : 'X';
   return (
     <Grid
       w='500px'
@@ -28,6 +35,7 @@ export const TicTacToe = () => {
             width='100%'
             bg='gray.600'
             color='white'
+            onClick={() => setNextPlayer(nextPlayer)}
           >
             {value}
           </Box>
