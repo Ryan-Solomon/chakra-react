@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { GreetingPage } from './pages/GreetingPage';
+import { HomePage } from './pages/HomePage';
 
 export const App = () => (
   <Router>
     <Switch>
+      <Route exact path='/'>
+        <HomePage />
+      </Route>
       <Route exact path='/greeting'>
         <GreetingPage />
       </Route>
