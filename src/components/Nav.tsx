@@ -16,6 +16,11 @@ export const Nav = () => {
             Greeting
           </Link>
         </Box>
+        <Box as='li'>
+          <Link as={NavLink} to='/tictactoe'>
+            Tic Tac Toe
+          </Link>
+        </Box>
       </HStack>
     </Box>
   );
