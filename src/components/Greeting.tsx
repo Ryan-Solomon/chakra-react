@@ -8,21 +8,21 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react';
+import { useLocalStorage } from '../customHooks/useLocalStorage';
 
 type TProps = {
   initialName: string;
 };
 
 export const Greeting: FC<TProps> = ({ initialName }) => {
-  const [name, setName] = useState(
-    () => localStorage.getItem('name') || initialName
-  );
+  const { storedValue, setStoredValue } = useLocalStorage({
+    key: 'name',
+    defaultValue: 'James Bond',
+  });
+  const [name, setName] = useState(storedValue);
 
   useEffect(() => {
-    if (localStorage.getItem('name')) {
-      localStorage.removeItem('name');
-    }
-    localStorage.setItem('name', name);
+    setStoredValue(name);
   }, [name]);
 
   return (
