@@ -5,7 +5,7 @@ import { GreetingPage } from './pages/GreetingPage';
 export const App = () => (
   <Router>
     <Switch>
-      <Route exact path='/'>
+      <Route exact path='/greeting'>
         <GreetingPage />
       </Route>
     </Switch>
