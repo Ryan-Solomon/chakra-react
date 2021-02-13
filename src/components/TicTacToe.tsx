@@ -1,5 +1,5 @@
 import { Box, Grid } from '@chakra-ui/react';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { TPlayers } from '../pages/ticTacToe/TicTacToePage';
 
 type TProps = {
@@ -17,12 +17,17 @@ export const TicTacToe: FC<TProps> = ({
   const nextPlayer = currentPlayer === 'X' ? '0' : 'X';
 
   function handleClick(idx: number) {
-    setNextPlayer(nextPlayer);
     const newBoard = [...board];
     const boardValue = currentPlayer === 'X' ? -1 : 1;
     newBoard[idx] = boardValue;
     setBoard(newBoard);
+    checkForWinner();
+    setNextPlayer(nextPlayer);
   }
+
+  useEffect(() => {
+    checkForWinner();
+  }, [board]);
 
   function checkForWinner() {
     const potentialWinners = [

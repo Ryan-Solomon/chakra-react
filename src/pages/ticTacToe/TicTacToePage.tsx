@@ -1,5 +1,5 @@
 import { Grid, HStack, Stack, Text } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TicTacToe } from '../../components/TicTacToe';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
@@ -12,11 +12,15 @@ export const TicTacToePage = () => {
   return (
     <Grid placeItems='center'>
       <Stack spacing={4} mx='auto' mt={10}>
-        <HStack spacing={4} align='center' direction='row'>
-          <Text color='gray.700'>Player </Text>
-          <AiOutlineArrowRight color='black' />
-          <Text fontWeight='bold'>{player}</Text>
-        </HStack>
+        {winner ? (
+          <Text>{winner} has won!</Text>
+        ) : (
+          <HStack spacing={4} align='center' direction='row'>
+            <Text color='gray.700'>Player </Text>
+            <AiOutlineArrowRight color='black' />
+            <Text fontWeight='bold'>{player}</Text>
+          </HStack>
+        )}
         <TicTacToe
           setWinner={setWinner}
           setNextPlayer={setPlayer}
