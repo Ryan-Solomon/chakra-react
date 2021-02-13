@@ -11,7 +11,7 @@ export const TicTacToePage = () => {
     <Grid placeItems='center'>
       <Stack spacing={4} mx='auto' mt={10}>
         <HStack spacing={4} align='center' direction='row'>
-          <Text color='gray.700'>Next Player </Text>
+          <Text color='gray.700'>Player </Text>
           <AiOutlineArrowRight color='black' />
           <Text fontWeight='bold'>{player}</Text>
         </HStack>
