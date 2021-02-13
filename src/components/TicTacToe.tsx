@@ -27,6 +27,23 @@ export const TicTacToe: FC<TProps> = ({
     setNextPlayer(nextPlayer);
   }
 
+  function storeBoardInStorage() {
+    if (localStorage.getItem('board')) {
+      localStorage.removeItem('board');
+    }
+    localStorage.setItem('board', JSON.stringify(board));
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('board')) {
+      setBoard(JSON.parse(localStorage.getItem('board') || ''));
+    }
+  }, []);
+
+  useEffect(() => {
+    storeBoardInStorage();
+  }, [board]);
+
   useEffect(() => {
     checkForWinner();
   }, [board]);
@@ -65,6 +82,7 @@ export const TicTacToe: FC<TProps> = ({
       w='500px'
       templateColumns='repeat(3,1fr)'
       templateRows='repeat(3,1fr)'
+      boxShadow='lg'
     >
       {board.map((value, idx) => {
         return (
