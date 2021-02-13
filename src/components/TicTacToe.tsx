@@ -5,8 +5,10 @@ import { TPlayers } from '../pages/ticTacToe/TicTacToePage';
 type TProps = {
   setNextPlayer: (p: TPlayers) => void;
   currentPlayer: TPlayers;
-  setWinner: (x: TPlayers) => void;
+  setWinner: (x: TPlayers | null) => void;
+  setShouldReset: (whatDo: boolean) => void;
   thereIsAWinner: boolean;
+  shouldReset: boolean;
 };
 
 export const TicTacToe: FC<TProps> = ({
@@ -14,6 +16,8 @@ export const TicTacToe: FC<TProps> = ({
   currentPlayer,
   setWinner,
   thereIsAWinner,
+  shouldReset,
+  setShouldReset,
 }) => {
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const nextPlayer = currentPlayer === 'X' ? '0' : 'X';
@@ -33,6 +37,14 @@ export const TicTacToe: FC<TProps> = ({
     }
     localStorage.setItem('board', JSON.stringify(board));
   }
+
+  useEffect(() => {
+    if (shouldReset === true) {
+      setWinner(null);
+      setBoard([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+      setShouldReset(false);
+    }
+  }, [shouldReset]);
 
   useEffect(() => {
     if (localStorage.getItem('board')) {

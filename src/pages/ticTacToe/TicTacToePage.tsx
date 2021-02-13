@@ -1,4 +1,4 @@
-import { Grid, HStack, Stack, Text } from '@chakra-ui/react';
+import { Button, Grid, HStack, Stack, Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { TicTacToe } from '../../components/TicTacToe';
 import { AiOutlineArrowRight } from 'react-icons/ai';
@@ -8,6 +8,7 @@ export type TPlayers = 'X' | '0';
 export const TicTacToePage = () => {
   const [player, setPlayer] = useState<TPlayers>('X');
   const [winner, setWinner] = useState<TPlayers | null>(null);
+  const [shouldReset, setShouldReset] = useState(false);
 
   return (
     <Grid placeItems='center'>
@@ -22,11 +23,22 @@ export const TicTacToePage = () => {
           </HStack>
         )}
         <TicTacToe
+          shouldReset={shouldReset}
           thereIsAWinner={winner !== null}
           setWinner={setWinner}
           setNextPlayer={setPlayer}
           currentPlayer={player}
+          setShouldReset={setShouldReset}
         />
+        {winner && (
+          <Button
+            colorScheme='teal'
+            variant='outline'
+            onClick={() => setShouldReset(true)}
+          >
+            Reset Game
+          </Button>
+        )}
       </Stack>
     </Grid>
   );
