@@ -22,6 +22,7 @@ export const TicTacToePage = () => {
           </HStack>
         )}
         <TicTacToe
+          thereIsAWinner={winner !== null}
           setWinner={setWinner}
           setNextPlayer={setPlayer}
           currentPlayer={player}

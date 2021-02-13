@@ -6,12 +6,14 @@ type TProps = {
   setNextPlayer: (p: TPlayers) => void;
   currentPlayer: TPlayers;
   setWinner: (x: TPlayers) => void;
+  thereIsAWinner: boolean;
 };
 
 export const TicTacToe: FC<TProps> = ({
   setNextPlayer,
   currentPlayer,
   setWinner,
+  thereIsAWinner,
 }) => {
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const nextPlayer = currentPlayer === 'X' ? '0' : 'X';
@@ -85,7 +87,7 @@ export const TicTacToe: FC<TProps> = ({
             bg='gray.600'
             color='white'
             onClick={() => handleClick(idx)}
-            disabled={value !== 0}
+            disabled={value !== 0 || thereIsAWinner}
           >
             {value === 0 ? '-' : value === -1 ? 'X' : '0'}
           </Box>
