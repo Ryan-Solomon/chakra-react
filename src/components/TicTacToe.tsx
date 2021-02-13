@@ -5,11 +5,15 @@ import { TPlayers } from '../pages/ticTacToe/TicTacToePage';
 type TProps = {
   setNextPlayer: (p: TPlayers) => void;
   currentPlayer: TPlayers;
+  setWinner: (x: TPlayers) => void;
 };
 
-export const TicTacToe: FC<TProps> = ({ setNextPlayer, currentPlayer }) => {
+export const TicTacToe: FC<TProps> = ({
+  setNextPlayer,
+  currentPlayer,
+  setWinner,
+}) => {
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  const [winner, setWinner] = useState<TPlayers | null>(null);
   const nextPlayer = currentPlayer === 'X' ? '0' : 'X';
 
   function handleClick(idx: number) {

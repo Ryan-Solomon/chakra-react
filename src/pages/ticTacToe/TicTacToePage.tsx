@@ -7,6 +7,8 @@ export type TPlayers = 'X' | '0';
 
 export const TicTacToePage = () => {
   const [player, setPlayer] = useState<TPlayers>('X');
+  const [winner, setWinner] = useState<TPlayers | null>(null);
+
   return (
     <Grid placeItems='center'>
       <Stack spacing={4} mx='auto' mt={10}>
@@ -15,7 +17,11 @@ export const TicTacToePage = () => {
           <AiOutlineArrowRight color='black' />
           <Text fontWeight='bold'>{player}</Text>
         </HStack>
-        <TicTacToe setNextPlayer={setPlayer} currentPlayer={player} />
+        <TicTacToe
+          setWinner={setWinner}
+          setNextPlayer={setPlayer}
+          currentPlayer={player}
+        />
       </Stack>
     </Grid>
   );
