@@ -31,6 +31,11 @@ export const Nav = () => {
             Accordion
           </Link>
         </Box>
+        <Box as='li'>
+          <Link as={NavLink} to='/counter'>
+            Counter
+          </Link>
+        </Box>
       </HStack>
     </Box>
   );

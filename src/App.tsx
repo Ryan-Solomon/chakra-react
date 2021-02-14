@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { TicTacToePage } from './pages/ticTacToe/TicTacToePage';
 import { DadJokePage } from './pages/dadjoke/DadJokePage';
 import { AccordionPage } from './pages/accordion/AccordionPage';
+import { CounterPage } from './pages/counter/CounterPage';
 
 export const App = () => (
   <Router>
@@ -25,6 +26,9 @@ export const App = () => (
       </Route>
       <Route exact path='/accordion'>
         <AccordionPage />
+      </Route>
+      <Route exact path='/counter'>
+        <CounterPage />
       </Route>
     </Switch>
   </Router>
