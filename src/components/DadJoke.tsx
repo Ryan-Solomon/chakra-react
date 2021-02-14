@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Button, Text, Stack } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { Spinner } from '@chakra-ui/react';
 
@@ -29,8 +29,19 @@ export const DadJoke = () => {
 
   const { text } = data.attachments[0];
   return (
-    <Box>
+    <Stack
+      padding={5}
+      spacing={5}
+      bgColor='#333'
+      boxShadow='lg'
+      mx='auto'
+      mt={10}
+      maxW='500px'
+    >
       <Text>{text}</Text>
-    </Box>
+      <Button colorScheme='teal' variant='outline'>
+        Fetch Joke
+      </Button>
+    </Stack>
   );
 };
