@@ -36,7 +36,7 @@ const initialState: TCountState = {
 };
 
 export const Counter = () => {
-  const [state, dispatch] = useReducer(initialState, countReducer);
+  const [state, dispatch] = useReducer(countReducer, initialState);
 
   return <Text>Count</Text>;
 };
