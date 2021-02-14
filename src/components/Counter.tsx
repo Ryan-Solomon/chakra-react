@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { useReducer } from 'react';
 
 type TCountState = {
   count: number;
@@ -18,7 +18,7 @@ type TAction =
       type: 'CLEAR';
     };
 
-function countReducer(state: TCountState, action: TAction) {
+function countReducer(state: TCountState, action: TAction): TCountState {
   switch (action.type) {
     case 'INCREASE':
       return { count: state.count + action.payload };
@@ -31,6 +31,12 @@ function countReducer(state: TCountState, action: TAction) {
   }
 }
 
+const initialState: TCountState = {
+  count: 0,
+};
+
 export const Counter = () => {
+  const [state, dispatch] = useReducer(initialState, countReducer);
+
   return <Text>Count</Text>;
 };
