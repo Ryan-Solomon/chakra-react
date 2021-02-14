@@ -1,6 +1,13 @@
 import { Box, Spinner, Text } from '@chakra-ui/react';
 import * as React from 'react';
 import useSWR from 'swr';
+import {
+  Accordion as AccordionWrapper,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from '@chakra-ui/react';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const url =
@@ -27,14 +34,29 @@ export const Accordion = () => {
       </Box>
     );
   const { drinks } = data;
-  console.log(data);
   return (
-    <Box>
-      {drinks.map((drink) => (
-        <Text color='white' key={drink.idDrink}>
-          {drink.strDrink}
-        </Text>
+    <AccordionWrapper
+      boxShadow='dark-lg'
+      mx='auto'
+      mt={10}
+      maxW='700px'
+      allowMultiple
+    >
+      {drinks.map(({ strDrink, idDrink, strInstructions }) => (
+        <AccordionItem key={idDrink}>
+          <h2>
+            <AccordionButton>
+              <Box fontSize={30} flex='1' textAlign='left'>
+                {strDrink}
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel fontSize={20} pb={4}>
+            {strInstructions}
+          </AccordionPanel>
+        </AccordionItem>
       ))}
-    </Box>
+    </AccordionWrapper>
   );
 };

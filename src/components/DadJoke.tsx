@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Button, Text, Stack } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { Spinner } from '@chakra-ui/react';
