@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Text, Stack } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { Spinner } from '@chakra-ui/react';
@@ -27,6 +27,10 @@ export const DadJoke = () => {
       </Box>
     );
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const { text } = data.attachments[0];
   return (
     <Stack
@@ -39,7 +43,7 @@ export const DadJoke = () => {
       maxW='500px'
     >
       <Text>{text}</Text>
-      <Button colorScheme='teal' variant='outline'>
+      <Button onClick={refreshPage} colorScheme='teal' variant='outline'>
         Fetch Joke
       </Button>
     </Stack>
