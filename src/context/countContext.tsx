@@ -1,6 +1,26 @@
-import React, { createContext, FC, ReactNode, useContext } from 'react';
+import React, {
+  createContext,
+  FC,
+  ReactNode,
+  useContext,
+  useReducer,
+} from 'react';
 
-const CountContext = createContext({});
+type TContext = {
+  count: number;
+  increase: (s: number) => void;
+  decrease: (s: number) => void;
+  clear: () => void;
+};
+
+const initialContext: TContext = {
+  count: 0,
+  increase: (s: number) => null,
+  decrease: (s: number) => null,
+  clear: () => null,
+};
+
+const CountContext = createContext(initialContext);
 
 type TCountState = {
   count: number;
@@ -37,7 +57,23 @@ const initialState: TCountState = {
 };
 
 export const CountProvider: FC<ReactNode> = ({ children }) => {
-  const value = {};
+  const [state, dispatch] = useReducer(countReducer, initialState);
+
+  function increase(step: number) {
+    dispatch({ type: 'INCREASE', payload: step });
+  }
+  function decrease(step: number) {
+    dispatch({ type: 'DECREASE', payload: step });
+  }
+  function clear() {
+    dispatch({ type: 'CLEAR' });
+  }
+  const value = {
+    count: state.count,
+    increase,
+    decrease,
+    clear,
+  };
   return (
     <CountContext.Provider value={value}>{children}</CountContext.Provider>
   );
