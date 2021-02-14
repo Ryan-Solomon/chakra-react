@@ -8,6 +8,7 @@ const url =
 
 type TDrink = {
   strDrink: string;
+  idDrink: string;
   strDrinkThumb: string;
   strInstructions: string;
 };
@@ -25,5 +26,15 @@ export const Accordion = () => {
         <Spinner size='lg' />
       </Box>
     );
-  return <Text color='white'>Accordion</Text>;
+  const { drinks } = data;
+  console.log(data);
+  return (
+    <Box>
+      {drinks.map((drink) => (
+        <Text color='white' key={drink.idDrink}>
+          {drink.strDrink}
+        </Text>
+      ))}
+    </Box>
+  );
 };

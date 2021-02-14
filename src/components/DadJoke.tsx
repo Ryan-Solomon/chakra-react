@@ -15,10 +15,7 @@ type TResponse = {
 
 export const DadJoke = () => {
   const { data, error } = useSWR<TResponse>(url, fetcher);
-  console.log({
-    data,
-    error,
-  });
+
   if (error) return <div>failed to load</div>;
   if (!data)
     return (
