@@ -26,6 +26,11 @@ export const Nav = () => {
             Dad Jokes
           </Link>
         </Box>
+        <Box as='li'>
+          <Link as={NavLink} to='/accordion'>
+            Accordion
+          </Link>
+        </Box>
       </HStack>
     </Box>
   );
