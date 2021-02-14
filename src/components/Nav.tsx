@@ -1,8 +1,9 @@
-import { Box, HStack, Link } from '@chakra-ui/react';
+import { Box, Button, HStack, Link, useColorMode } from '@chakra-ui/react';
 import React from 'react';
 import { Link as NavLink } from 'react-router-dom';
 
 export const Nav = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box boxShadow='2xl' as='nav' bgColor='#333' p={2}>
       <HStack pl={4} spacing={5} color='white' as='ul' listStyleType='none'>
@@ -35,6 +36,11 @@ export const Nav = () => {
           <Link as={NavLink} to='/counter'>
             Counter
           </Link>
+        </Box>
+        <Box color={colorMode === 'light' ? 'black' : 'white'} ml='auto'>
+          <Button variant='outline' onClick={toggleColorMode}>
+            Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+          </Button>
         </Box>
       </HStack>
     </Box>
