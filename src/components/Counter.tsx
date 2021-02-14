@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { Box, Button, HStack, Text } from '@chakra-ui/react';
 import React, { useReducer } from 'react';
 
 type TCountState = {
@@ -38,5 +38,40 @@ const initialState: TCountState = {
 export const Counter = () => {
   const [state, dispatch] = useReducer(countReducer, initialState);
 
-  return <Text>Count</Text>;
+  function increase(step: number) {
+    dispatch({ type: 'INCREASE', payload: step });
+  }
+  function decrease(step: number) {
+    dispatch({ type: 'DECREASE', payload: step });
+  }
+  function clear() {
+    dispatch({ type: 'CLEAR' });
+  }
+
+  return (
+    <Box boxShadow='dark-lg' maxW={80} p={6} mx='auto' mt={10}>
+      <Text mb={6} fontSize={30} as='h1'>
+        Count: {state.count}
+      </Text>
+      <HStack>
+        <Button
+          onClick={() => increase(1)}
+          variant='outline'
+          colorScheme='teal'
+        >
+          Increase
+        </Button>
+        <Button
+          onClick={() => decrease(1)}
+          variant='outline'
+          colorScheme='orange'
+        >
+          Decrease
+        </Button>
+        <Button variant='outline' onClick={() => clear()} colorScheme='red'>
+          Clear
+        </Button>
+      </HStack>
+    </Box>
+  );
 };
