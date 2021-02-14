@@ -4,6 +4,7 @@ import { Nav } from './components/Nav';
 import { GreetingPage } from './pages/greeting/GreetingPage';
 import { HomePage } from './pages/HomePage';
 import { TicTacToePage } from './pages/ticTacToe/TicTacToePage';
+import { DadJokePage } from './pages/dadjoke/DadJokePage';
 
 export const App = () => (
   <Router>
@@ -17,6 +18,9 @@ export const App = () => (
       </Route>
       <Route exact path='/tictactoe'>
         <TicTacToePage />
+      </Route>
+      <Route exact path='/dadjokes'>
+        <DadJokePage />
       </Route>
     </Switch>
   </Router>

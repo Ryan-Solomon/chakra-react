@@ -21,6 +21,11 @@ export const Nav = () => {
             Tic Tac Toe
           </Link>
         </Box>
+        <Box as='li'>
+          <Link as={NavLink} to='/dadjokes'>
+            Dad Jokes
+          </Link>
+        </Box>
       </HStack>
     </Box>
   );
