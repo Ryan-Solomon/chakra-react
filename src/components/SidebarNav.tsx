@@ -6,13 +6,16 @@ import {
   MenuList,
   Portal,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const SidebarNav = () => {
   return (
     <Menu>
-      <MenuButton>Open menu</MenuButton>
+      <MenuButton>
+        <GiHamburgerMenu size={30} />
+      </MenuButton>
       <Portal>
         <MenuList>
           <MenuItem>

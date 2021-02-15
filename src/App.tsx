@@ -12,7 +12,7 @@ import { SidebarNav } from './components/SidebarNav';
 export const App = () => {
   return (
     <Router>
-      <SidebarNav />
+      <Nav />
       <Switch>
         <Route exact path='/'>
           <HomePage />
