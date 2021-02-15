@@ -1,7 +1,6 @@
 import { Box, Button, HStack, Link, useColorMode } from '@chakra-ui/react';
 import React from 'react';
 import { Link as NavLink } from 'react-router-dom';
-import { CountProvider } from '../context/countContext';
 import { CountPopover } from './CountPopover';
 
 export const Nav = () => {

@@ -7,29 +7,32 @@ import { TicTacToePage } from './pages/ticTacToe/TicTacToePage';
 import { DadJokePage } from './pages/dadjoke/DadJokePage';
 import { AccordionPage } from './pages/accordion/AccordionPage';
 import { CounterPage } from './pages/counter/CounterPage';
+import { SidebarNav } from './components/SidebarNav';
 
-export const App = () => (
-  <Router>
-    <Nav />
-    <Switch>
-      <Route exact path='/'>
-        <HomePage />
-      </Route>
-      <Route exact path='/greeting'>
-        <GreetingPage />
-      </Route>
-      <Route exact path='/tictactoe'>
-        <TicTacToePage />
-      </Route>
-      <Route exact path='/dadjokes'>
-        <DadJokePage />
-      </Route>
-      <Route exact path='/accordion'>
-        <AccordionPage />
-      </Route>
-      <Route exact path='/counter'>
-        <CounterPage />
-      </Route>
-    </Switch>
-  </Router>
-);
+export const App = () => {
+  return (
+    <Router>
+      <SidebarNav />
+      <Switch>
+        <Route exact path='/'>
+          <HomePage />
+        </Route>
+        <Route exact path='/greeting'>
+          <GreetingPage />
+        </Route>
+        <Route exact path='/tictactoe'>
+          <TicTacToePage />
+        </Route>
+        <Route exact path='/dadjokes'>
+          <DadJokePage />
+        </Route>
+        <Route exact path='/accordion'>
+          <AccordionPage />
+        </Route>
+        <Route exact path='/counter'>
+          <CounterPage />
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
