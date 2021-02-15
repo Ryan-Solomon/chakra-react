@@ -13,15 +13,17 @@ export const Nav = () => {
       setWindowWidth(window.innerWidth);
     }
 
-    document.addEventListener('resize', setTheWidth);
+    window.addEventListener('resize', setTheWidth);
 
-    return () => document.removeEventListener('resize', setTheWidth);
+    return () => window.removeEventListener('resize', setTheWidth);
   }, []);
+
+  console.log(windowWidth);
 
   return (
     <Box boxShadow='2xl' as='nav' bgColor='#333' p={2}>
       <HStack pl={4} spacing={5} color='white' as='ul' listStyleType='none'>
-        {windowWidth < 600 ? (
+        {windowWidth < 900 ? (
           <SidebarNav />
         ) : (
           <>
