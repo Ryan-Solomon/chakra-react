@@ -1,6 +1,8 @@
 import { Box, Button, HStack, Link, useColorMode } from '@chakra-ui/react';
 import React from 'react';
 import { Link as NavLink } from 'react-router-dom';
+import { CountProvider } from '../context/countContext';
+import { CountPopover } from './CountPopover';
 
 export const Nav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -37,10 +39,13 @@ export const Nav = () => {
             Counter
           </Link>
         </Box>
-        <Box color={colorMode === 'light' ? 'black' : 'white'} ml='auto'>
+        <Box color={colorMode === 'light' ? 'black' : 'white'}>
           <Button variant='outline' onClick={toggleColorMode}>
             Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
           </Button>
+        </Box>
+        <Box>
+          <CountPopover />
         </Box>
       </HStack>
     </Box>
