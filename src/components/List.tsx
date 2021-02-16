@@ -7,11 +7,11 @@ export const ListComponent = () => {
     <List spacing={3}>
       <ListItem>
         <ListIcon as={AiFillCheckSquare} color='green.500' />
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+        Tic Tac Toe
       </ListItem>
       <ListItem>
         <ListIcon as={AiFillCheckSquare} color='green.500' />
-        Assumenda, quia temporibus eveniet a libero incidunt suscipit
+        Counter
       </ListItem>
       <ListItem>
         <ListIcon as={AiFillCheckSquare} color='green.500' />
