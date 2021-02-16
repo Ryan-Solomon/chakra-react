@@ -1,6 +1,12 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
+import { ListComponent } from '../components/List';
 
 export const HomePage = () => {
-  return <Text>Home Page</Text>;
+  return (
+    <Box color='white'>
+      <Text>Home Page</Text>
+      <ListComponent />
+    </Box>
+  );
 };

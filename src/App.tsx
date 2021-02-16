@@ -7,7 +7,6 @@ import { TicTacToePage } from './pages/ticTacToe/TicTacToePage';
 import { DadJokePage } from './pages/dadjoke/DadJokePage';
 import { AccordionPage } from './pages/accordion/AccordionPage';
 import { CounterPage } from './pages/counter/CounterPage';
-import { SidebarNav } from './components/SidebarNav';
 
 export const App = () => {
   return (

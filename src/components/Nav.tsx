@@ -20,8 +20,6 @@ export const Nav = () => {
     return () => window.removeEventListener('resize', setTheWidth);
   }, []);
 
-  console.log(windowWidth);
-
   return (
     <Box boxShadow='2xl' as='nav' bgColor='#333' p={2}>
       <HStack pl={4} spacing={5} color='white' as='ul' listStyleType='none'>
@@ -30,7 +28,7 @@ export const Nav = () => {
         ) : (
           <>
             <Box as='li'>
-              <Link as={NavLink} to='/home'>
+              <Link as={NavLink} to='/'>
                 Home
               </Link>
             </Box>

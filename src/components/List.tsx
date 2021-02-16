@@ -17,7 +17,6 @@ export const ListComponent = () => {
         <ListIcon as={AiFillCheckSquare} color='green.500' />
         Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       </ListItem>
-      {/* You can also use custom icons from react-icons */}
       <ListItem>
         <ListIcon as={AiFillCheckSquare} color='green.500' />
         Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
