@@ -103,7 +103,7 @@ export const TicTacToe: FC<TProps> = ({
             _hover={{
               background: 'white',
               cursor: 'pointer',
-              color: 'gray.800',
+              // color: 'gray.800',
               transition: 'all .2s ease',
             }}
             display='flex'

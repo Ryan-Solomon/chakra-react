@@ -1,4 +1,11 @@
-import { Button, Grid, HStack, Stack, Text } from '@chakra-ui/react';
+import {
+  Button,
+  Grid,
+  HStack,
+  Stack,
+  Text,
+  useColorMode,
+} from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { TicTacToe } from '../../components/TicTacToe';
 import { AiOutlineArrowRight } from 'react-icons/ai';
@@ -9,6 +16,7 @@ export const TicTacToePage = () => {
   const [player, setPlayer] = useState<TPlayers>('X');
   const [winner, setWinner] = useState<TPlayers | null>(null);
   const [shouldReset, setShouldReset] = useState(false);
+  const { colorMode } = useColorMode();
 
   return (
     <Grid placeItems='center'>
@@ -17,8 +25,10 @@ export const TicTacToePage = () => {
           <Text>{winner} has won!</Text>
         ) : (
           <HStack spacing={4} align='center' direction='row'>
-            <Text color='gray.700'>Player </Text>
-            <AiOutlineArrowRight color='black' />
+            <Text>Player </Text>
+            <AiOutlineArrowRight
+              color={colorMode === 'light' ? 'black' : 'white'}
+            />
             <Text fontWeight='bold'>{player}</Text>
           </HStack>
         )}
