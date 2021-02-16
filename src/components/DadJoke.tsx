@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Text, Stack } from '@chakra-ui/react';
+import { Box, Button, Text, Stack, Tooltip } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { Spinner } from '@chakra-ui/react';
 
@@ -40,9 +40,11 @@ export const DadJoke = () => {
       maxW='500px'
     >
       <Text>{text}</Text>
-      <Button onClick={refreshPage} colorScheme='teal' variant='outline'>
-        Fetch Joke
-      </Button>
+      <Tooltip label='This will refresh the page' aria-label='A tooltip'>
+        <Button onClick={refreshPage} colorScheme='teal' variant='outline'>
+          Fetch Joke
+        </Button>
+      </Tooltip>
     </Stack>
   );
 };
