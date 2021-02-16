@@ -2,6 +2,7 @@ import { Box, Button, HStack, Link, useColorMode } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Link as NavLink } from 'react-router-dom';
 import { CountPopover } from './CountPopover';
+import { ModalComponent } from './Modal';
 import { SidebarNav } from './SidebarNav';
 
 export const Nav = () => {
@@ -67,6 +68,9 @@ export const Nav = () => {
         </Box>
         <Box>
           <CountPopover />
+        </Box>
+        <Box>
+          <ModalComponent />
         </Box>
       </HStack>
     </Box>
