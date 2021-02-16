@@ -14,9 +14,7 @@ export const BottomDrawer = () => {
 
   return (
     <>
-      <Button colorScheme='blue' onClick={onOpen}>
-        Open
-      </Button>
+      <Button onClick={onOpen}>Bottom Drawer</Button>
       <Drawer placement='bottom' onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay>
           <DrawerContent>

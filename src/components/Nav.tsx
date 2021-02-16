@@ -4,6 +4,7 @@ import { Link as NavLink } from 'react-router-dom';
 import { CountPopover } from './CountPopover';
 import { ModalComponent } from './Modal';
 import { SidebarNav } from './SidebarNav';
+import { BottomDrawer } from './BottomDrawer';
 
 export const Nav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -62,7 +63,7 @@ export const Nav = () => {
         )}
 
         <Box color={colorMode === 'light' ? 'black' : 'white'}>
-          <Button variant='outline' onClick={toggleColorMode}>
+          <Button onClick={toggleColorMode}>
             Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
           </Button>
         </Box>
@@ -71,6 +72,9 @@ export const Nav = () => {
         </Box>
         <Box>
           <ModalComponent />
+        </Box>
+        <Box>
+          <BottomDrawer />
         </Box>
       </HStack>
     </Box>
