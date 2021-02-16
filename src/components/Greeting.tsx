@@ -26,7 +26,7 @@ export const Greeting: FC<TProps> = ({ initialName }) => {
   }, [name]);
 
   return (
-    <Box mx='auto' mt={5} width='400px' color='gray.800'>
+    <Box mx='auto' mt={5} width='400px'>
       <FormControl id='name'>
         <HStack>
           <FormLabel>Name: </FormLabel>
@@ -39,11 +39,9 @@ export const Greeting: FC<TProps> = ({ initialName }) => {
           />
         </HStack>
         {name ? (
-          <FormHelperText color='gray.700'>Hi, {name}</FormHelperText>
+          <FormHelperText>Hi, {name}</FormHelperText>
         ) : (
-          <FormHelperText color='gray.700'>
-            Please enter your name
-          </FormHelperText>
+          <FormHelperText>Please enter your name</FormHelperText>
         )}
       </FormControl>
     </Box>
