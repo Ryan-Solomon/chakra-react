@@ -4,10 +4,9 @@ import { ListComponent } from '../components/List';
 
 export const HomePage = () => {
   return (
-    <Box color='white'>
-      <Text>
-        This app demonstrates my ability to build a variety of components using
-        React and Chakra UI
+    <Box p={8} maxW='600px' mx='auto' mt={10} boxShadow='dark-lg'>
+      <Text fontSize={25} textAlign='center' mb={5}>
+        This app includes a variety of features built with React and Chakra UI
       </Text>
       <ListComponent />
     </Box>
